@@ -1,28 +1,7 @@
 .app-wrapper {
-  display: grid;
-  grid-template-areas: 
-  "header header header"
-  "nav content content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-}
-
-.header {
-  grid-area: header;
-  background-color: blueviolet;
-}
-
-.header img {
-  width: 100px;
-}
-
-.nav {
-  grid-area: nav;
-  background-color: blueviolet;
-}
-
-.content {
-  grid-area: content;
-  background-color: cornsilk;
+    display: grid;
+    grid-template-areas: "header header" "nav content";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
 }

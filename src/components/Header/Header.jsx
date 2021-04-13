@@ -1,8 +1,9 @@
-import logo from './../logo.svg';
+import logo from './../../logo.svg';
+import styles from './Header.module.css';
 
 function Header() {
     return (
-        <header className='header'>
+        <header className={styles.header}>
             <img src={logo} alt="logo" />
         </header>
     );
