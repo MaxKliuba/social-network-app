@@ -1,13 +1,77 @@
 .content {
+    position: static;
     background-color: transparent;
     padding-top: 80px;
     padding-left: 310px;
 }
 
 .content_box {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;
     color: #18191A;
+}
+
+.status {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #404040;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.profile_info {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.user_name {
+    font-size: 40px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.group {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.group_label {
+    width: 100px;
+    color: #404040;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.group_text {
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    width: 150px;
+}
+
+@media only screen and (max-width: 720px) {
+    .content {
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+    .avatar {
+        display: block;
+        margin: 20px auto;
+    }
+    .user_name {
+        text-align: center;
+    }
 }
