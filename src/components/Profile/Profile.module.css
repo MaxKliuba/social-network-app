@@ -1,4 +1,13 @@
 .content {
-    grid-area: content;
-    background-color: cornsilk;
+    background-color: transparent;
+    padding-top: 80px;
+    padding-left: 310px;
+}
+
+.content_box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #18191A;
 }

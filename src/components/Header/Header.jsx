@@ -4,7 +4,11 @@ import styles from './Header.module.css';
 function Header() {
     return (
         <header className={styles.header}>
-            <img src={logo} alt="logo" />
+            <img className={styles.logo} src={logo} alt="logo"/>
+            <h1 className={styles.title}>Neuron</h1>
+            <div className={styles.menu_button}>
+                <div className={styles.menu_button_content}></div>
+            </div>
         </header>
     );
 }
