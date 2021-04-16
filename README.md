@@ -1,2 +1,2 @@
 # Social Network App
-Created by Maxim Kliuba and Dmytro Folkin
+Created by Maxim Kliuba and Dmytro Folkin :)
