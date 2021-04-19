@@ -38,25 +38,27 @@
 
 .user_name {
     font-size: 40px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #18191A;
     margin-bottom: 20px;
 }
 
 .group {
     margin-top: 10px;
-    font-size: 20px;
 }
 
 .group_label {
     width: 100px;
-    color: #404040;
+    color: #585858;
     margin-right: 10px;
     display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .group_text {
     background-color: transparent;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     border: none;
     outline: none;
     width: 150px;

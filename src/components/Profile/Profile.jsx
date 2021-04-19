@@ -1,3 +1,4 @@
+import MyPosts from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
 
 function Profile() {
@@ -19,28 +20,7 @@ function Profile() {
                 </div>
             </div>
             <div className={styles.content_box}>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-            </div>
-            <div className={styles.content_box}>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-            </div>
-            <div className={styles.content_box}>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-            </div>
-            <div className={styles.content_box}>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
-                <h1>lol</h1>
+                <MyPosts />
             </div>
         </div>
     );
