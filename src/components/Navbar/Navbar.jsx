@@ -6,15 +6,19 @@ function Navbar() {
     return (
         <nav className={styles.nav}>
             <div className={styles.item}>
-                <input type='button' className={styles.item_text} value='Profile'/>
+                <a href="/profile">Profile</a>
             </div>
             <div className={styles.item}>
-                <input type='button' className={styles.item_text} value='Messages'/>
-                <input type='button' className={styles.item_indicator} value='+1'/>
+                <a href="/dialogs">
+                    Dialogs
+                    <span className={styles.item_indicator}>+1</span>
+                </a>
             </div>
             <div className={styles.item}>
-                <input type='button' className={styles.item_text} value='Friends'/>
-                <input type='button' className={styles.item_indicator} value='+2'/>
+                <a href="/friends">
+                    Friends
+                    <span className={styles.item_indicator}>+2</span>
+                </a>
             </div>
         </nav>
     );

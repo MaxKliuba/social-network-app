@@ -1,11 +1,12 @@
+import './../../App.css';
 import MyPosts from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
 
 function Profile() {
     return (
-        <div className={styles.content}>
+        <div>
             <h3 className={styles.status}>Online</h3>
-            <div className={styles.content_box}>
+            <div className='content_box'>
                 <img className={styles.avatar} src="https://avatarfiles.alphacoders.com/150/thumb-150316.jpg" alt="avatar"></img>
                 <div className={styles.profile_info}>
                     <h2 className={styles.user_name}>Test User Name</h2>
@@ -19,7 +20,7 @@ function Profile() {
                     </div>                   
                 </div>
             </div>
-            <div className={styles.content_box}>
+            <div className='content_box'>
                 <MyPosts />
             </div>
         </div>
