@@ -2,12 +2,12 @@ import MyPosts from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-function Profile() {
+function Profile(props) {
     return (
         <div>
-            <ProfileInfo id="0" status="Online" name="User Test Name" avatar="https://avatarfiles.alphacoders.com/150/thumb-150316.jpg" birthday="31.02.2000" city="Test-City"/>
+            <ProfileInfo userData={props.profilePage.userData} />
             <div className='content_box'>
-                <MyPosts />
+                <MyPosts postsData={props.profilePage.postsData} />
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 
-function App() {
+function App(props) {
     return ( <
         BrowserRouter >
         <
@@ -19,15 +19,18 @@ function App() {
         div className = "app_wrapper_content" >
         <
         Route path = '/profile'
-        component = { Profile }
-        /> <
-        Route path = '/dialogs'
-        component = { Dialogs }
-        /> <
-        /div> <
-        /div> <
-        /BrowserRouter>
-    );
-}
+        render = {
+            () => < Profile profilePage = { props.state.profilePage }
+            />}/ >
+            <
+            Route path = '/dialogs'
+            render = {
+                () => < Dialogs / > }
+            /> <
+            /div> <
+            /div> <
+            /BrowserRouter>
+        );
+    }
 
-export default App;
+    export default App;
