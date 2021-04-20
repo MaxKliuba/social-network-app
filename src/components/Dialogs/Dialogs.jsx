@@ -1,4 +1,3 @@
-import './../../App.css';
 import styles from './Dialogs.module.css';
 
 function Dialogs() {

@@ -1,6 +1,21 @@
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
+let posts = [
+    {id: 0, user_id: 0, user_name: "User Test Name", user_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg", datetime: "17:21 19.04.2021", text: "test post 1", like:100000000000000000000},
+    {id: 1, user_id: 0, user_name: "User Test Name", user_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg", datetime: "17:21 19.04.2021", text: "test post 1", like:10},
+    {id: 2, user_id: 0, user_name: "User Test Name", user_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg", datetime: "17:21 19.04.2021", text: "test post 1", like:100},
+    {id: 3, user_id: 0, user_name: "User Test Name", user_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg", datetime: "17:21 19.04.2021", text: "test post 1", like:1000},
+    {id: 4, user_id: 0, user_name: "User Test Name", user_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg", datetime: "17:21 19.04.2021", text: "test post 1", like:10000},
+
+]
+
+let postsElements = posts.map(el => {
+    return (
+        <Post id={el.id} user_id={el.user_id} user_name={el.user_name} user_avatar={el.user_avatar} datetime={el.datetime} text={el.text} like={el.like}/>
+    );
+})
+
 function MyPosts() {
     return (
         <div>
@@ -10,13 +25,7 @@ function MyPosts() {
                     <input type='button' className={styles.textarea_button} value='Send'/>
                 </div>
             </div>
-            <Post user_id="0" datetime="17:21 19.04.2021" text="test post 1" like="1"/>
-            <Post user_id="0" datetime="17:22 19.04.2021" text="test post 2" like="10"/>
-            <Post user_id="0" datetime="17:23 19.04.2021" text="test post 3" like="100"/>
-            <Post user_id="0" datetime="17:24 19.04.2021" text="test post 4" like="10000000000000000000"/>
-            <Post user_id="0" datetime="17:25 19.04.2021" text="test post 5" like="0"/>
-            <Post user_id="0" datetime="17:26 19.04.2021" text="test post 6" like="0"/>
-            <Post user_id="0" datetime="17:27 19.04.2021" text="test post 7" like="0"/>
+            {postsElements}
         </div>
     );
 }

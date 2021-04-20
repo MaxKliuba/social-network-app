@@ -10,13 +10,13 @@ function App() {
     return ( <
         BrowserRouter >
         <
-        div className = 'app_wrapper' >
+        div className = "app_wrapper" >
         <
         Header / >
         <
         Navbar / >
         <
-        div className = 'app_wrapper_content' >
+        div className = "app_wrapper_content" >
         <
         Route path = '/profile'
         component = { Profile }

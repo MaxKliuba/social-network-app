@@ -1,0 +1,58 @@
+.status {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #404040;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.profile_info {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.user_name {
+    font-size: 40px;
+    border-bottom: 1px solid #18191A;
+    margin-bottom: 20px;
+}
+
+.group {
+    margin-top: 10px;
+}
+
+.group_label {
+    width: 100px;
+    color: #585858;
+    margin-right: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.group_text {
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+}
+
+@media only screen and (max-width: 720px) {
+    .avatar {
+        display: block;
+        margin: 20px auto;
+    }
+    .user_name {
+        text-align: center;
+    }
+}

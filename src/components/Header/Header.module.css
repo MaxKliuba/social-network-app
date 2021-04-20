@@ -12,7 +12,9 @@
 
 .logo {
     height: 70px;
-    width: 100px;
+    width: 70px;
+    margin-left: 15px;
+    margin-right: 15px;
     float: left;
     -webkit-user-select: none;
     -moz-user-select: none;

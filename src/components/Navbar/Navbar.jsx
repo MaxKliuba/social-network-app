@@ -1,25 +1,27 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-// {`${styles.nav} ${styles.active}`}
+let navbarData = [
+    {link: "/profile", text: "Profile", indicator_value: 0},
+    {link: "/dialogs", text: "Dialogs", indicator_value: 1},
+    {link: "/friends", text: "Friends", indicator_value: 2},
+]
+
+let navbarElements = navbarData.map(el => {
+    return (
+        <div className={styles.item}>
+            <NavLink to={el.link} activeClassName={styles.activeLink}>
+                {el.text}
+                {el.indicator_value > 0 ? (<span className={styles.item_indicator}>+{el.indicator_value}</span>) : null}
+            </NavLink>
+        </div>
+    );
+})
 
 function Navbar() {
     return (
         <nav className={styles.nav}>
-            <div className={styles.item}>
-                <a href="/profile">Profile</a>
-            </div>
-            <div className={styles.item}>
-                <a href="/dialogs">
-                    Dialogs
-                    <span className={styles.item_indicator}>+1</span>
-                </a>
-            </div>
-            <div className={styles.item}>
-                <a href="/friends">
-                    Friends
-                    <span className={styles.item_indicator}>+2</span>
-                </a>
-            </div>
+            {navbarElements}
         </nav>
     );
 }

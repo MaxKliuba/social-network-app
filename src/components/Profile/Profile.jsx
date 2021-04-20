@@ -1,25 +1,11 @@
-import './../../App.css';
 import MyPosts from './MyPosts/MyPosts';
 import styles from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 function Profile() {
     return (
         <div>
-            <h3 className={styles.status}>Online</h3>
-            <div className='content_box'>
-                <img className={styles.avatar} src="https://avatarfiles.alphacoders.com/150/thumb-150316.jpg" alt="avatar"></img>
-                <div className={styles.profile_info}>
-                    <h2 className={styles.user_name}>Test User Name</h2>
-                    <div className={styles.group}>
-                        <label className={styles.group_label}>Birthday:</label>
-                        <input className={styles.group_text} type="text" readOnly value="31.02.2000"/>
-                    </div>
-                    <div className={styles.group}>
-                        <label className={styles.group_label}>City:</label>
-                        <input className={styles.group_text} type="text" readOnly value="Test-City"/>
-                    </div>                   
-                </div>
-            </div>
+            <ProfileInfo id="0" status="Online" name="User Test Name" avatar="https://avatarfiles.alphacoders.com/150/thumb-150316.jpg" birthday="31.02.2000" city="Test-City"/>
             <div className='content_box'>
                 <MyPosts />
             </div>
