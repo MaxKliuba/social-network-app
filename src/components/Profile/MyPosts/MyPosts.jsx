@@ -10,10 +10,10 @@ function MyPosts(props) {
 
     return (
         <div>
-            <div tabindex="0" className={styles.post_creator_box}>
+            <div tabIndex="0" className={styles.post_creator_box}>
                 <textarea className={styles.textarea} maxlength="5000" placeholder="How are you?"></textarea>
                 <div className={styles.post_creator_tools}>
-                    <input type='button' className={styles.textarea_button} value='Send'/>
+                    <button className={styles.textarea_button} onClick={ () => { alert('lol') } }>Send</button>
                 </div>
             </div>
             {postsElements}
