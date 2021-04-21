@@ -24,9 +24,11 @@ function MyPosts(props) {
   }
 
   let newPostElement = React.createRef();
+  let textareaButton = React.createRef();
 
   let addPost = () => {
     props.addPost();
+    textareaButton.current.blur();
   };
 
   let onPostChange = () => {
@@ -45,7 +47,7 @@ function MyPosts(props) {
           value={props.newPostText}
         ></textarea>
         <div className={styles.post_creator_tools}>
-          <button className={styles.textarea_button} onClick={addPost}>
+          <button className={styles.textarea_button} ref={textareaButton} onClick={addPost}>
             Send
           </button>
         </div>
