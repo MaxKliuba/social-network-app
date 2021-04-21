@@ -4,8 +4,8 @@ import styles from './Navbar.module.css';
 function Navbar() {
     let navbarData = [
         {link: "/profile", text: "Profile", indicator_value: 0},
-        {link: "/dialogs", text: "Dialogs", indicator_value: 1},
-        {link: "/friends", text: "Friends", indicator_value: 2},
+        {link: "/dialogs", text: "Dialogs", indicator_value: 0},
+        {link: "/friends", text: "Friends", indicator_value: 0},
     ]
     
     let navbarElements = navbarData.map(el => {

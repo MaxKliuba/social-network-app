@@ -1,5 +1,4 @@
 .post_creator_box {
-    margin-bottom: 20px;
     outline: none;
 }
 
@@ -10,7 +9,6 @@
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
     padding-right: 0px;
-    margin-bottom: 10px;
     border-radius: 20px;
     text-align: left;
     border: none;
@@ -26,6 +24,7 @@
     display: none;
     outline: none;
     height: 50px;
+    margin-top: 10px;
 }
 
 .textarea_button {
@@ -40,6 +39,10 @@
     color: whitesmoke;
     float: right;
     cursor: pointer;
+}
+
+.posts_container {
+    margin-top: 20px;
 }
 
 .textarea_button:hover {

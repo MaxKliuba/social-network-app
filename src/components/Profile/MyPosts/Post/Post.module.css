@@ -110,6 +110,10 @@
     margin-left: 5px;
     margin-right: 10px;
     font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .heart {

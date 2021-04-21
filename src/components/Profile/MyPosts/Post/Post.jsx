@@ -12,10 +12,10 @@ function Post(props) {
                 <h6 className={styles.post_datetime}>{props.datetime}</h6>
             </div>
             <div className={styles.post_content}>
-                {props.text}
+                <span>{props.text}</span>
             </div>
             <div className={styles.post_footer}>
-                <div className={styles.like_button}>
+                <div className={styles.like_button} onClick={ () => console.log("like")}>
                     <span className={styles.like_text}>{props.like}</span>
                     <div className={styles.heart}></div>
                 </div>
