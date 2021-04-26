@@ -12,7 +12,219 @@ let store = {
       postsData: [],
       newPostText: "",
     },
-    dialogsPage: {},
+    dialogsPage: {
+      dialogsItems: [
+        {
+          id: 1,
+          friend_id: 1,
+          friend_name: "Test Friend 1",
+          friend_avatar:
+            "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+          last_message:
+            "lol1zkjchsakjcbskjcbkjscbjh asc jhs assajh asgdasjh dgasuydgas jh awduyd ad aud aw ad auyd auydwudgeygseyfg sdjf d fsdjh sdjg fhjsdgf jhsd fjhsdgf jhsdgf sjf js fe fjsef g syesjh jh bsjf gaufsye gf sejhsej ge hsgf )",
+        },
+        {
+          id: 2,
+          friend_id: 2,
+          friend_name: "Test Friend 2",
+          friend_avatar:
+            "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+          last_message: "Lol)",
+        },
+      ],
+      chatData: [
+        {
+          id: 0,
+          friend_id: 2,
+          friend_name: "Test Friend 2",
+          friend_avatar:
+            "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+          messages: [
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            {
+              id: 0,
+              my_message: false,
+              message: "Hi! How are you?",
+            },
+            {
+              id: 1,
+              my_message: true,
+              message: "Hi! I am fine)",
+            },
+            {
+              id: 2,
+              my_message: true,
+              message: "What about you?",
+            },
+            {
+              id: 3,
+              my_message: false,
+              message: "I am fine too)",
+            },
+            
+          ],
+        },
+      ],
+    },
   },
 
   getState() {
@@ -26,7 +238,7 @@ let store = {
 
     if (this._state.profilePage.newPostText.length > 0) {
       let digitFormat = (digit) => {
-        return digit.toString().length < 2 ? '0' + digit : digit;
+        return digit.toString().length < 2 ? "0" + digit : digit;
       };
       let today = new Date();
       let dateTimeNow =

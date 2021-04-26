@@ -1,6 +1,7 @@
 import { Route } from "react-router";
 import "./App.css";
-import Dialogs from "./components/Dialogs/Dialogs";
+import AllDialogs from "./components/Dialogs/AllDialogs/AllDialogs";
+import Chat from "./components/Dialogs/Chat/Chat";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -22,8 +23,12 @@ function App(props) {
           )}
         />
         <Route
-          path="/dialogs"
-          render={() => <Dialogs dialogsData={props.state.dialogsData} />}
+          exact path="/dialogs"
+          render={() => <AllDialogs dialogsItems={props.state.dialogsPage.dialogsItems} />}
+        />
+        <Route
+          exact path="/dialogs/1"
+          render={() => <Chat chatData={props.state.dialogsPage.chatData[0]} />}
         />
       </div>
     </div>

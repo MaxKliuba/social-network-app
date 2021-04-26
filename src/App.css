@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body {
+html, body {
     background-color: #18191A;
 }
 
@@ -17,6 +17,9 @@ body {
     background-color: transparent;
     padding-top: 80px;
     padding-left: 310px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 .content_box {
