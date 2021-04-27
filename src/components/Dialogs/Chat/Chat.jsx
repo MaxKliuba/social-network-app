@@ -22,7 +22,12 @@ function Chat(props) {
 
   let messagesElements = state.chatData.messages.map((el) => {
     return (
-      <Message id={el.id} my_message={el.my_message} message={el.message} />
+      <Message
+        key={el.id}
+        id={el.id}
+        my_message={el.my_message}
+        message={el.message}
+      />
     );
   });
 
@@ -63,7 +68,7 @@ function Chat(props) {
           <button
             className={styles.textarea_button}
             // ref={textareaButton}
-            onClick={ onSendMessageClick }
+            onClick={onSendMessageClick}
           >
             Send
           </button>

@@ -16,7 +16,7 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       state.newPostText = state.newPostText.trim();
 
       if (state.newPostText.length > 0) {
@@ -45,16 +45,27 @@ const profileReducer = (state = initialState, action) => {
           like: 0,
         };
 
-        state.postsData.unshift(newPost);
-        state.newPostText = "";
+        return {
+          ...state,
+          newPostText: "",
+          postsData: [newPost, ...state.postsData],
+        };
       }
-      break;
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      break;
-  }
 
-  return state;
+      return {
+        ...state,
+        newPostText: "",
+      };
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
+    }
+    default:
+      return state;
+  }
 };
 
 export const addPostCreator = () => {

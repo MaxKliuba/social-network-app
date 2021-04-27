@@ -5,6 +5,7 @@ function AllDialogs(props) {
   let dialogsElements = props.dialogsItems.map((el) => {
     return (
       <DialogsItem
+        key={el.id}
         id={el.id}
         friend_id={el.friend_id}
         friend_name={el.friend_name}

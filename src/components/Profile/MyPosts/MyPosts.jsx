@@ -6,6 +6,7 @@ function MyPosts(props) {
   let postsElements = props.postsData.map((el) => {
     return (
       <Post
+        key={el.id}
         id={el.id}
         user_id={el.user_id}
         user_name={el.user_name}

@@ -35,7 +35,7 @@ let initialState = {
 
 const chatReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case SEND_MESSAGE: {
       state.chatData.newMessageText = state.chatData.newMessageText.trim();
 
       if (state.chatData.newMessageText.length > 0) {
@@ -45,16 +45,35 @@ const chatReducer = (state = initialState, action) => {
           message: state.chatData.newMessageText,
         };
 
-        state.chatData.messages.push(newMessage);
-        state.chatData.newMessageText = "";
+        return {
+          ...state,
+          chatData: {
+            ...state.chatData,
+            newMessageText: "",
+            messages: [...state.chatData.messages, newMessage],
+          },
+        };
       }
-      break;
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.chatData.newMessageText = action.newText;
-      break;
+      return {
+        ...state,
+        chatData: {
+          ...state.chatData,
+          newMessageText: "",
+        },
+      };
+    }
+    case UPDATE_NEW_MESSAGE_TEXT: {
+      return {
+        ...state,
+        chatData: {
+          ...state.chatData,
+          newMessageText: action.newText,
+        },
+      };
+    }
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export const sendMessageCreator = () => {
