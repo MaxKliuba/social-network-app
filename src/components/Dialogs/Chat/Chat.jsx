@@ -18,11 +18,21 @@ const Message = (props) => {
 };
 
 function Chat(props) {
-  let messagesElements = props.chatData.messages.map((el) => {
+  let state = props.chatPage;
+
+  let messagesElements = state.chatData.messages.map((el) => {
     return (
       <Message id={el.id} my_message={el.my_message} message={el.message} />
     );
   });
+
+  let onSendMessageClick = () => {
+    props.sendMessage();
+  };
+
+  let onNewMessageChange = (e) => {
+    props.newMessageChange(e.target.value);
+  };
 
   return (
     <div className={styles.chat_box}>
@@ -32,10 +42,10 @@ function Chat(props) {
         </div>
         <img
           className={styles.friend_avatar}
-          src={props.chatData.friend_avatar}
+          src={state.chatData.friend_avatar}
           alt="avatar"
         ></img>
-        <h3 className={styles.friend_name}>{props.chatData.friend_name}</h3>
+        <h3 className={styles.friend_name}>{state.chatData.friend_name}</h3>
       </div>
       <div className={styles.chat_content}>{messagesElements}</div>
       <div className={styles.chat_footer}>
@@ -44,16 +54,16 @@ function Chat(props) {
             <textarea
               className={styles.textarea}
               // ref={newMessageElement}
-              // onChange={onMessageChange}
+              onChange={onNewMessageChange}
               maxLength="5000"
               placeholder="Message"
-              // value={props.newMessageText}
+              value={state.chatData.newMessageText}
             ></textarea>
           </div>
           <button
             className={styles.textarea_button}
             // ref={textareaButton}
-            // onClick={sendMessage}
+            onClick={ onSendMessageClick }
           >
             Send
           </button>

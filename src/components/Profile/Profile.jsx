@@ -1,17 +1,13 @@
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import styles from "./Profile.module.css";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 function Profile(props) {
   return (
     <div>
-      <ProfileInfo userData={props.profilePage.userData} />
+      <ProfileInfoContainer/>
       <div className="content_box">
-        <MyPosts
-          postsData={props.profilePage.postsData}
-          dispatch={props.dispatch}
-          newPostText={props.profilePage.newPostText}
-        />
+        <MyPostsContainer />
       </div>
     </div>
   );

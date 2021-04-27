@@ -26,13 +26,13 @@ function MyPosts(props) {
   let newPostElement = React.createRef();
   let textareaButton = React.createRef();
 
-  let addPost = () => {
-    props.dispatch({ type: 'ADD-POST' });
+  let onAddPost = () => {
+    props.addPost();
     textareaButton.current.blur();
   };
 
   let onPostChange = () => {
-    props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: newPostElement.current.value });
+    props.newPostChange(newPostElement.current.value);
   };
 
   return (
@@ -47,7 +47,11 @@ function MyPosts(props) {
           value={props.newPostText}
         ></textarea>
         <div className={styles.post_creator_tools}>
-          <button className={styles.textarea_button} ref={textareaButton} onClick={addPost}>
+          <button
+            className={styles.textarea_button}
+            ref={textareaButton}
+            onClick={onAddPost}
+          >
             Send
           </button>
         </div>
