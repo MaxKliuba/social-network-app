@@ -2,6 +2,7 @@ import { Route } from "react-router";
 import "./App.css";
 import AllDialogsContainer from "./components/Dialogs/AllDialogs/AllDialogsContainer";
 import ChatContainer from "./components/Dialogs/Chat/ChatContainer";
+import FindUsersContainer from "./components/FindUsers/FindUsersContainer";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -15,6 +16,7 @@ function App(props) {
         <Route path="/profile" render={() => <Profile />} />
         <Route exact path="/dialogs" render={() => <AllDialogsContainer />} />
         <Route exact path="/dialogs/1" render={() => <ChatContainer />} />
+        <Route path="/find-users" render={() => <FindUsersContainer />} />
       </div>
     </div>
   );

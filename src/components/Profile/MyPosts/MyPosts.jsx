@@ -6,13 +6,13 @@ function MyPosts(props) {
   let postsElements = props.postsData.map((el) => {
     return (
       <Post
-        key={el.id}
-        id={el.id}
-        user_id={el.user_id}
-        user_name={el.user_name}
-        user_avatar={el.user_avatar}
-        datetime={el.datetime}
-        text={el.text}
+        key={el.postId}
+        postId={el.postId}
+        userId={el.userId}
+        userName={el.userName}
+        userAvatar={el.userAvatar}
+        postDatetime={el.postDatetime}
+        postText={el.postText}
         like={el.like}
       />
     );

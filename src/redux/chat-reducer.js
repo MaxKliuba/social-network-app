@@ -3,30 +3,34 @@ const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let initialState = {
   chatData: {
-    id: 0,
-    friend_id: 2,
-    friend_name: "Test Friend 2",
-    friend_avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+    chatId: 0,
+    friendId: 2,
+    friendName: "Test Friend 2",
+    friendAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
     messages: [
       {
-        id: 0,
-        my_message: false,
-        message: "Hi! How are you?",
+        messageId: 0,
+        userId: 1,
+        myMessage: false,
+        messageText: "Hi! How are you?",
       },
       {
-        id: 1,
-        my_message: true,
-        message: "Hi! I am fine)",
+        messageId: 1,
+        userId: 0,
+        myMessage: true,
+        messageText: "Hi! I am fine)",
       },
       {
-        id: 2,
-        my_message: true,
-        message: "What about you?",
+        messageId: 2,
+        userId: 0,
+        myMessage: true,
+        messageText: "What about you?",
       },
       {
-        id: 3,
-        my_message: false,
-        message: "I am fine too)",
+        messageId: 3,
+        userId: 1,
+        myMessage: false,
+        messageText: "I am fine too)",
       },
     ],
     newMessageText: "",
@@ -40,9 +44,10 @@ const chatReducer = (state = initialState, action) => {
 
       if (state.chatData.newMessageText.length > 0) {
         let newMessage = {
-          id: 0,
-          my_message: true,
-          message: state.chatData.newMessageText,
+          messageId: 0,
+          userId: 0,
+          myMessage: true,
+          messageText: state.chatData.newMessageText,
         };
 
         return {

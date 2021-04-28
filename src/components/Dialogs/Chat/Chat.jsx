@@ -1,17 +1,18 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Chat.module.css";
 
 const Message = (props) => {
-  if (props.my_message == true) {
+  if (props.myMessage == true) {
     return (
       <div className={styles.my_message_box}>
-        <p className={styles.my_message}>{props.message}</p>
+        <p className={styles.my_message}>{props.messageText}</p>
       </div>
     );
   } else {
     return (
       <div className={styles.friend_message_box}>
-        <p className={styles.friend_message}>{props.message}</p>
+        <p className={styles.friend_message}>{props.messageText}</p>
       </div>
     );
   }
@@ -23,10 +24,11 @@ function Chat(props) {
   let messagesElements = state.chatData.messages.map((el) => {
     return (
       <Message
-        key={el.id}
-        id={el.id}
-        my_message={el.my_message}
-        message={el.message}
+        key={el.messageId}
+        messageId={el.messageId}
+        userId={el.userId}
+        myMessage={el.myMessage}
+        messageText={el.messageText}
       />
     );
   });
@@ -47,10 +49,10 @@ function Chat(props) {
         </div>
         <img
           className={styles.friend_avatar}
-          src={state.chatData.friend_avatar}
+          src={state.chatData.friendAvatar}
           alt="avatar"
         ></img>
-        <h3 className={styles.friend_name}>{state.chatData.friend_name}</h3>
+        <h3 className={styles.friend_name}>{state.chatData.friendName}</h3>
       </div>
       <div className={styles.chat_content}>{messagesElements}</div>
       <div className={styles.chat_footer}>

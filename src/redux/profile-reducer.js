@@ -3,14 +3,24 @@ const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
 let initialState = {
   userData: {
-    id: 0,
-    status: "Online",
-    name: "User Test Name",
-    avatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-    birthday: "31.02.2000",
-    city: "Test-City",
+    userId: 0,
+    userStatus: "Online",
+    userName: "User Test Name",
+    userAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+    userBirthday: "31.02.2000",
+    userCity: "Test-City",
   },
-  postsData: [],
+  postsData: [
+    // {
+    //   postId: null,
+    //   userId: null,
+    //   userName: null,
+    //   userAvatar: null,
+    //   postDatetime: null,
+    //   postText: null,
+    //   like: null,
+    // },
+  ],
   newPostText: "",
 };
 
@@ -36,12 +46,12 @@ const profileReducer = (state = initialState, action) => {
           today.getFullYear();
 
         let newPost = {
-          id: 0,
-          user_id: state.userData.id,
-          user_name: state.userData.name,
-          user_avatar: state.userData.avatar,
-          datetime: dateTimeNow,
-          text: state.newPostText,
+          postId: 0,
+          userId: state.userData.userId,
+          userName: state.userData.userName,
+          userAvatar: state.userData.userAvatar,
+          postDatetime: dateTimeNow,
+          postText: state.newPostText,
           like: 0,
         };
 

@@ -1,27 +1,24 @@
 let initialState = {
   dialogsItems: [
     {
-      id: 1,
-      friend_id: 1,
-      friend_name: "Test Friend 1",
-      friend_avatar:
-        "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-      last_message:
+      dialogId: 1,
+      friendId: 1,
+      friendName: "Test Friend 1",
+      friendAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+      lastMessage:
         "lol1zkjchsakjcbskjcbkjscbjh asc jhs assajh asgdasjh dgasuydgas jh awduyd ad aud aw ad auyd auydwudgeygseyfg sdjf d fsdjh sdjg fhjsdgf jhsd fjhsdgf jhsdgf sjf js fe fjsef g syesjh jh bsjf gaufsye gf sejhsej ge hsgf )",
     },
     {
-      id: 2,
-      friend_id: 2,
-      friend_name: "Test Friend 2",
-      friend_avatar:
-        "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-      last_message: "Lol)",
+      dialogId: 2,
+      friendId: 2,
+      friendName: "Test Friend 2",
+      friendAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
+      lastMessage: "LoL)",
     },
   ],
 };
 
 const dialogsReducer = (state = initialState, action) => {
-
   return state;
 };
 
