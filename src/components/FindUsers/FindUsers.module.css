@@ -1,0 +1,6 @@
+.selected_page {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 720px) {
+}

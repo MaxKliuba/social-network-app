@@ -3,19 +3,15 @@ import { NavLink } from "react-router-dom";
 import styles from "./Chat.module.css";
 
 const Message = (props) => {
-  if (props.myMessage == true) {
-    return (
-      <div className={styles.my_message_box}>
-        <p className={styles.my_message}>{props.messageText}</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className={styles.friend_message_box}>
-        <p className={styles.friend_message}>{props.messageText}</p>
-      </div>
-    );
-  }
+  return props.myMessage ? (
+    <div className={styles.my_message_box}>
+      <p className={styles.my_message}>{props.messageText}</p>
+    </div>
+  ) : (
+    <div className={styles.friend_message_box}>
+      <p className={styles.friend_message}>{props.messageText}</p>
+    </div>
+  );
 };
 
 function Chat(props) {

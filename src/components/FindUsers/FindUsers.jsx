@@ -1,48 +1,46 @@
 import React from "react";
+import styles from "./FindUsers.module.css";
+import userPhoto from "../../assets/images/userPhoto.jpg";
 
 let FindUsers = (props) => {
-  if (props.users.lenght === 0) {
-    props.setUsers([
-      {
-        userId: 1,
-        userName: "User Test Name 1",
-        userAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-        userBirthday: "31.02.2000",
-        userCity: "Test-City",
-        followed: true,
-      },
-      {
-        userId: 2,
-        userName: "User Test Name 2",
-        userAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-        userBirthday: "31.02.2000",
-        userCity: "Test-City",
-        followed: false,
-      },
-      {
-        userId: 3,
-        userName: "User Test Name 3",
-        userAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-        userBirthday: "31.02.2000",
-        userCity: "Test-City",
-        followed: false,
-      },
-    ]);
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
   }
 
   return (
     <div className="content_box">
+      <div>
+        {pages.map((p) => {
+          return (
+            <span
+              key={p}
+              className={props.currentPage === p && styles.selected_page}
+              onClick={() => {
+                props.onPageChanged(p);
+              }}
+            >
+              {p}
+            </span>
+          );
+        })}
+      </div>
       {props.users.map((el) => (
-        <div key={el.userId}>
+        <div key={el.id}>
           <span>
             <div>
-              <img src={el.userAvatar} alt="avatar" />
+              <img
+                src={el.photos.small != null ? el.photos.small : userPhoto}
+                alt="avatar"
+              />
             </div>
             <div>
               {el.followed ? (
                 <button
                   onClick={() => {
-                    props.unfollow(el.userId);
+                    props.unfollow(el.id);
                   }}
                 >
                   Unfollow
@@ -50,7 +48,7 @@ let FindUsers = (props) => {
               ) : (
                 <button
                   onClick={() => {
-                    props.follow(el.userId);
+                    props.follow(el.id);
                   }}
                 >
                   Follow
@@ -59,11 +57,10 @@ let FindUsers = (props) => {
             </div>
           </span>
           <span>
-            <div>{el.userName}</div>
+            <div>{el.name}</div>
           </span>
           <span>
-            <div>{el.userCity}</div>
-            <div>{el.userBirthday}</div>
+            <div>{el.status}</div>
           </span>
         </div>
       ))}
