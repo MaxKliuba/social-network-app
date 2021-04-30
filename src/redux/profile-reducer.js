@@ -12,6 +12,27 @@ let initialState = {
     userCity: "Test-City",
   },
   profile: null,
+  // {
+  //   "aboutMe": "я круто чувак 1001%",
+  //   "contacts": {
+  //     "facebook": "facebook.com",
+  //     "website": null,
+  //     "vk": "vk.com/dimych",
+  //     "twitter": "https://twitter.com/@sdf",
+  //     "instagram": "instagra.com/sds",
+  //     "youtube": null,
+  //     "github": "github.com",
+  //     "mainLink": null
+  //   },
+  //   "lookingForAJob": true,
+  //   "lookingForAJobDescription": "не ищу, а дурачусь",
+  //   "fullName": "samurai dimych",
+  //   "userId": 2,
+  //   "photos": {
+  //     "small": "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
+  //     "large": "https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0"
+  //   }
+  // }
   postsData: [
     // {
     //   postId: null,
@@ -49,9 +70,9 @@ const profileReducer = (state = initialState, action) => {
 
         let newPost = {
           postId: 0,
-          userId: state.userData.userId,
-          userName: state.userData.userName,
-          userAvatar: state.userData.userAvatar,
+          userId: state.profile.userId,
+          userName: state.profile.fullName,
+          userAvatar: state.profile.photos.small,
           postDatetime: dateTimeNow,
           postText: state.newPostText,
           like: 0,
