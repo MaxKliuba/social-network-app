@@ -2,15 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import * as axios from "axios";
 import {
-  followCreator,
-  setCurrentPageCreator,
-  setTotalUsersCountCreator,
-  setUsersCreator,
-  toggleIsFetchingCreator,
-  unfollowCreator,
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers,
+  toggleIsFetching,
+  unfollow,
 } from "../../redux/find-users-reducer";
 import FindUsers from "./FindUsers";
-import preloader from "../../assets/images/preloader.gif";
 import Preloader from "../common/Preloader/Preloader";
 
 class FindUsersContainer extends React.Component {
@@ -73,27 +72,11 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (id) => {
-      dispatch(followCreator(id));
-    },
-    unfollow: (id) => {
-      dispatch(unfollowCreator(id));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersCreator(users));
-    },
-    setCurrentPage: (currentPage) => {
-      dispatch(setCurrentPageCreator(currentPage));
-    },
-    setTotalUsersCount: (totalUsersCount) => {
-      dispatch(setTotalUsersCountCreator(totalUsersCount));
-    },
-    toggleIsFetching: (isFerching) => {
-      dispatch(toggleIsFetchingCreator(isFerching));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FindUsersContainer);
+export default connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching,
+})(FindUsersContainer);

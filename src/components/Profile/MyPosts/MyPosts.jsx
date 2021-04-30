@@ -37,7 +37,7 @@ function MyPosts(props) {
   };
 
   return (
-    <div>
+    <div className="content_box">
       <div tabIndex="0" className={styles.post_creator_box}>
         <textarea
           className={styles.textarea}

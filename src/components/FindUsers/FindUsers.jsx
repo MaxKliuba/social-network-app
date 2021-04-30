@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./FindUsers.module.css";
 import userPhoto from "../../assets/images/userPhoto.jpg";
+import { NavLink } from "react-router-dom";
 
 let FindUsers = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -31,10 +32,12 @@ let FindUsers = (props) => {
         <div key={el.id}>
           <span>
             <div>
+              <NavLink to={"/profile/" + el.id}>
               <img
                 src={el.photos.small != null ? el.photos.small : userPhoto}
                 alt="avatar"
               />
+              </NavLink>
             </div>
             <div>
               {el.followed ? (

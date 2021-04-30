@@ -1,15 +1,12 @@
 import React from "react";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import styles from "./Profile.module.css";
-import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 function Profile(props) {
   return (
     <div>
-      <ProfileInfoContainer />
-      <div className="content_box">
-        <MyPostsContainer />
-      </div>
+      <ProfileInfo profile={props.profile} />
+      <MyPostsContainer />
     </div>
   );
 }
