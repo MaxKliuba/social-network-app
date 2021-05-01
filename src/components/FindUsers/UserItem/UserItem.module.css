@@ -1,0 +1,70 @@
+.user_item_box {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.user_avatar_block {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.user_avatar_block a {
+    display: block;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user_avatar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.user_info_block {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.user_name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.user_button_block {
+    margin: 10px;
+    float: right;
+    height: 80px;
+}
+
+.user_button {
+    height: 50px;
+    width: 110px;
+    border-radius: 25px;
+    margin-top: 15px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.follow_button {
+    background-color: #2E8FCD;
+}
+
+.unfollow_button{
+    background-color: #828283;
+}
+
+.disabled_button{
+    background-color: #C1C1C1;
+}
+
+@media only screen and (max-width: 720px) {
+    
+}

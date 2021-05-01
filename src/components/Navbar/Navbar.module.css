@@ -39,7 +39,8 @@ a.activeLink {
     max-width: 100px;
     margin: 5px;
     padding: 5px;
-    background-color: #007ACC;
+    background-color: #2E8FCD;
+     /* #007ACC; */
     border-radius: 20px;
     font-size: 15px;
     color: whitesmoke;
