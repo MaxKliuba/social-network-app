@@ -1,12 +1,17 @@
 import React from "react";
 import styles from "./Post.module.css";
+import userPhoto from "../../../../assets/images/userPhoto.jpg"
 
 function Post(props) {
   return (
     <div className={styles.post_box}>
       <img
         className={styles.user_avatar}
-        src={props.userAvatar}
+        src={
+          props.userAvatar != null
+            ? props.userAvatar
+            : userPhoto
+        }
         alt="avatar"
       ></img>
       <div className={styles.edit_button}>

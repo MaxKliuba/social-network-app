@@ -5,11 +5,11 @@ import styles from "./Chat.module.css";
 const Message = (props) => {
   return props.myMessage ? (
     <div className={styles.my_message_box}>
-      <p className={styles.my_message}>{props.messageText}</p>
+      <span className={styles.my_message}>{props.messageText}</span>
     </div>
   ) : (
     <div className={styles.friend_message_box}>
-      <p className={styles.friend_message}>{props.messageText}</p>
+      <span className={styles.friend_message}>{props.messageText}</span>
     </div>
   );
 };

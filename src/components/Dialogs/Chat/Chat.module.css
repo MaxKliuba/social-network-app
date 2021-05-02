@@ -10,8 +10,6 @@
 .chat_header {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 890px;
-  min-width: 700px;
   height: 70px;
   display: table-row;
   border-radius: 20px 20px 0 0;
@@ -86,6 +84,38 @@
   color: whitesmoke;
 }
 
+.my_message_box {
+  background-color: transparent;
+  text-align: right;
+  margin: 10px;
+  overflow-wrap: break-word;
+}
+
+.my_message {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #2E8FCD;
+  display: inline-block;
+  max-width: 350px;
+}
+
+.friend_message_box {
+  display: block;
+  background-color: transparent;
+  text-align: left;
+  margin: 10px;
+  overflow-wrap: break-word;
+}
+
+.friend_message {
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #828283;
+  display: inline-block;
+  max-width: 350px;
+}
+
+
 .chat_footer {
   height: 70px;
   display: table-row;
@@ -112,7 +142,6 @@
     outline: none;
     font-size: 22px;
     color: #18191A;
-
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -131,39 +160,9 @@
     flex: 0 100px;
 }
 
-.my_message_box {
-    display: block;
-    background-color: transparent;
-    text-align: right;
-    margin: 10px;
-}
-
-.my_message {
-    max-width: 80%;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #2E8FCD;
-    display: inline-block;
-}
-
-.friend_message_box {
-    display: block;
-    background-color: transparent;
-    text-align: left;
-    margin: 10px;
-}
-
-.friend_message {
-    max-width: 80%;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #828283;
-    display: inline-block;
-}
-
-.textarea_button:hover {
-    /* background-color: rgba(255, 255, 255, 0.4); */
-}
+/* .textarea_button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+} */
 
 @media only screen and (max-width: 720px) {
 }

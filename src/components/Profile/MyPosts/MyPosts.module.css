@@ -45,9 +45,9 @@
     margin-top: 20px;
 }
 
-.textarea_button:hover {
-    /* background-color: rgba(50, 50, 50, 0.5); */
-}
+/* .textarea_button:hover {
+    background-color: rgba(50, 50, 50, 0.5);
+} */
 
 .post_creator_box:focus .textarea,
 .post_creator_box:focus-within .textarea {

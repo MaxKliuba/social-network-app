@@ -2,6 +2,7 @@
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .user_avatar_block {
@@ -27,6 +28,8 @@
     display: inline-block;
     vertical-align: middle;
     margin: 10px;
+    width: 71%;
+    overflow-wrap: break-word;
 }
 
 .user_name {
@@ -36,15 +39,15 @@
 
 .user_button_block {
     margin: 10px;
-    float: right;
-    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
 }
 
 .user_button {
     height: 50px;
     width: 110px;
     border-radius: 25px;
-    margin-top: 15px;
     text-align: center;
     border: none;
     outline: none;
