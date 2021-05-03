@@ -33,14 +33,7 @@ function UserItem(props) {
             }`}
             disabled={props.disabledFlag}
             onClick={() => {
-              props.toggleFollowingProgress(true, props.user.id);
-
-              usersAPI.unfollow(props.user.id).then((response) => {
-                if (response.resultCode === 0) {
-                  props.unfollow(props.user.id);
-                }
-                props.toggleFollowingProgress(false, props.user.id);
-              });
+              props.unfollow(props.user.id);
             }}
           >
             Unfollow
@@ -52,14 +45,7 @@ function UserItem(props) {
             }`}
             disabled={props.disabledFlag}
             onClick={() => {
-              props.toggleFollowingProgress(true, props.user.id);
-
-              usersAPI.follow(props.user.id).then((response) => {
-                if (response.resultCode === 0) {
-                  props.follow(props.user.id);
-                }
-                props.toggleFollowingProgress(false, props.user.id);
-              });
+              props.follow(props.user.id);
             }}
           >
             Follow

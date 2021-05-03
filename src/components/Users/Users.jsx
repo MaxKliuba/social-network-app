@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./FindUsers.module.css";
+import styles from "./Users.module.css";
 import UserItem from "./UserItem/UserItem";
 
-let FindUsers = (props) => {
+let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
   // let pages = [];
@@ -33,7 +33,6 @@ let FindUsers = (props) => {
           <UserItem
             user={el}
             disabledFlag={props.followingInProgress.some((id) => id === el.id)}
-            toggleFollowingProgress={props.toggleFollowingProgress}
             follow={props.follow}
             unfollow={props.unfollow}
           />
@@ -55,4 +54,4 @@ let FindUsers = (props) => {
   );
 };
 
-export default FindUsers;
+export default Users;

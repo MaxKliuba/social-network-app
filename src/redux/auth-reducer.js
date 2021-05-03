@@ -1,3 +1,5 @@
+import { authAPI } from "../api/api";
+
 const SET_USER_DATA = "SET_USER_DATA";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
@@ -42,6 +44,17 @@ export const toggleIsFetching = (isFetching) => {
   return {
     type: TOGGLE_IS_FETCHING,
     isFetching: isFetching,
+  };
+};
+
+export const getAuthUserData = () => {
+  return (dispatch) => {
+    authAPI.me().then((response) => {
+      if (response.resultCode === 0) {
+        let { id, email, login } = response.data;
+        dispatch(setAuthUserData(id, email, login));
+      }
+    });
   };
 };
 

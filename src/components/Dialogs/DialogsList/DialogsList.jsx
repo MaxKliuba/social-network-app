@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./AllDialogs.module.css";
+import styles from "./DialogsList.module.css";
 import DialogsItem from "./DialogsItem/DialogsItem";
 
-function AllDialogs(props) {
+function DialogsList(props) {
   let dialogsElements = props.dialogsItems.map((el) => {
     return (
       <DialogsItem
@@ -19,4 +19,4 @@ function AllDialogs(props) {
   return <div className="content_box">{dialogsElements}</div>;
 }
 
-export default AllDialogs;
+export default DialogsList;

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import AllDialogs from "./AllDialogs";
+import DialogsList from "./DialogsList";
 
 let mapStateToProps = (state) => {
   return {
@@ -12,9 +12,9 @@ let mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-const AllDialogsContainer = connect(
+const DialogsListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AllDialogs);
+)(DialogsList);
 
-export default AllDialogsContainer;
+export default DialogsListContainer;
