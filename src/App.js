@@ -7,6 +7,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import Login from "./components/Login/Login";
 
 function App(props) {
   return (
@@ -17,7 +18,8 @@ function App(props) {
         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
         <Route exact path="/dialogs" render={() => <DialogsListContainer />} />
         <Route exact path="/dialogs/1" render={() => <ChatContainer />} />
-        <Route path="/find-users" render={() => <UsersContainer />} />
+        <Route path="/users" render={() => <UsersContainer />} />
+        <Route path="/login" render={() => <Login />} />
       </div>
     </div>
   );
