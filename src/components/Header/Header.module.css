@@ -36,6 +36,32 @@
     line-height: 60px;
 }
 
+.header_button {
+    float: right;
+    height: 50px;
+    margin: 10px;
+}
+
+.login_button {
+    height: 100%;
+    width: 90px;
+    border-radius: 20px;
+    background-color: #2E8FCD;
+    font-size: 25px;
+}
+
+.login_button a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+
+
+
 .menu_button {
     position: absolute;
     top: 5px;
