@@ -94,7 +94,7 @@
 .my_message {
   border-radius: 20px;
   padding: 10px;
-  background-color: #2e8fcd;
+  background-color: #007BFF;
   display: inline-block;
   max-width: 350px;
 }
@@ -110,7 +110,7 @@
 .friend_message {
   border-radius: 20px;
   padding: 10px;
-  background-color: #828283;
+  background-color: #6C757D;
   display: inline-block;
   max-width: 350px;
 }
@@ -139,7 +139,7 @@
   text-align: left;
   border: none;
   outline: none;
-  font-size: 22px;
+  font-size: 20px;
   color: #18191a;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -147,7 +147,7 @@
 
 .textarea_button {
   height: 50px;
-  background-color: #2e8fcd;
+  background-color: #007BFF;
   border-radius: 20px;
   margin: 10px;
   text-align: center;

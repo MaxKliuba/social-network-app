@@ -1,4 +1,5 @@
 import { Route } from "react-router";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import DialogsListContainer from "./components/Dialogs/DialogsList/DialogsListContainer";
 import ChatContainer from "./components/Dialogs/Chat/ChatContainer";
