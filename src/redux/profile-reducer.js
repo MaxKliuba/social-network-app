@@ -1,8 +1,9 @@
-import { usersAPI } from "../api/api";
+import { profileAPI, usersAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_STATUS = "SET_STATUS";
 
 let initialState = {
   userData: {
@@ -13,6 +14,18 @@ let initialState = {
     userBirthday: "31.02.2000",
     userCity: "Test-City",
   },
+  postsData: [
+    // {
+    //   postId: null,
+    //   userId: null,
+    //   userName: null,
+    //   userAvatar: null,
+    //   postDatetime: null,
+    //   postText: null,
+    //   like: null,
+    // },
+  ],
+  newPostText: "",
   profile: null,
   // {
   //   "aboutMe": "я круто чувак 1001%",
@@ -35,18 +48,7 @@ let initialState = {
   //     "large": "https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0"
   //   }
   // }
-  postsData: [
-    // {
-    //   postId: null,
-    //   userId: null,
-    //   userName: null,
-    //   userAvatar: null,
-    //   postDatetime: null,
-    //   postText: null,
-    //   like: null,
-    // },
-  ],
-  newPostText: "",
+  status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -104,6 +106,12 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
     }
+    case SET_STATUS: {
+      return {
+        ...state,
+        status: action.status,
+      };
+    }
     default:
       return state;
   }
@@ -127,10 +135,35 @@ export const setUserProfile = (profile) => {
   };
 };
 
+export const setStatus = (status) => {
+  return {
+    type: SET_STATUS,
+    status,
+  };
+};
+
 export const getUserProfile = (userId) => {
   return (dispatch) => {
     usersAPI.getProfile(userId).then((response) => {
       dispatch(setUserProfile(response));
+    });
+  };
+};
+
+export const getStatus = (userId) => {
+  return (dispatch) => {
+    profileAPI.getStatus(userId).then((response) => {
+      dispatch(setStatus(response));
+    });
+  };
+};
+
+export const updateStatus = (status) => {
+  return (dispatch) => {
+    profileAPI.updateStatus(status).then((response) => {
+      if(response.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
     });
   };
 };

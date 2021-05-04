@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ProfileInfo.module.css";
 import userPhoto from "../../../assets/images/userPhoto.jpg";
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 function ProfileInfo(props) {
   if (!props.profile) {
@@ -14,7 +15,7 @@ function ProfileInfo(props) {
 
   return (
     <div>
-      <h3 className={styles.status}>Online</h3>
+      {/* <h3 className={styles.status}>Online</h3> */}
       <div className="content_box">
         <img
           className={styles.avatar}
@@ -28,15 +29,12 @@ function ProfileInfo(props) {
         <div className={styles.profile_info}>
           <h2 className={styles.user_name}>{props.profile.fullName}</h2>
           <div className={styles.group}>
-            <label className={styles.group_label}>About me:</label>
-            <span className={styles.group_text}>{props.profile.aboutMe}</span>
+            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
           </div>
-          {/* <div className={styles.group}>
-            <label className={styles.group_label}>Birthday:</label>
-            <span className={styles.group_text}>
-              {props.userData.userBirthday}
-            </span>
-          </div> */}
+          <div className={styles.group}>
+            <label className={styles.group_label}>About me:</label>
+            <span>{props.profile.aboutMe}</span>
+          </div>
         </div>
       </div>
     </div>

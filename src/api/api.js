@@ -10,7 +10,7 @@ const instance = axios.create({
 
 export const usersAPI = {
   getProfile(userId) {
-    return instance.get(`profile/${userId}`).then((response) => response.data);
+    return profileAPI.getProfile(userId);
   },
 
   getUsers(currentPage = 1, pageSize = 5) {
@@ -26,6 +26,18 @@ export const usersAPI = {
       .delete(`follow/${userId}`)
       .then((response) => response.data);
   },
+};
+
+export const profileAPI = {
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`).then((response) => response.data);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`).then((response) => response.data);
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, {status: status}).then((response) => response.data);
+  }
 };
 
 export const authAPI = {

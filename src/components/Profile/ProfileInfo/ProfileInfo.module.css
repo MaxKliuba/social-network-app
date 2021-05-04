@@ -52,6 +52,11 @@
         display: block;
         margin: 20px auto;
     }
+    .profile_info {
+        display: block;
+        margin: 20px;
+    }
+
     .user_name {
         text-align: center;
     }
