@@ -1,4 +1,5 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
@@ -24,42 +25,45 @@ function MyPosts(props) {
     );
   }
 
-  let newPostElement = React.createRef();
-  let textareaButton = React.createRef();
-
-  let onAddPost = () => {
-    props.addPost();
-    textareaButton.current.blur();
-  };
-
-  let onPostChange = () => {
-    props.newPostChange(newPostElement.current.value);
+  let onAddPost = (values) => {
+    props.addPost(values.newPostText);
   };
 
   return (
     <div className="content_box">
-      <div tabIndex="0" className={styles.post_creator_box}>
-        <textarea
-          className={styles.textarea}
-          ref={newPostElement}
-          onChange={onPostChange}
-          maxLength="5000"
-          placeholder="How are you?"
-          value={props.newPostText}
-        ></textarea>
-        <div className={styles.post_creator_tools}>
-          <button
-            className={styles.textarea_button}
-            ref={textareaButton}
-            onClick={onAddPost}
-          >
-            Send
-          </button>
-        </div>
-      </div>
+      <AddNewPostRedux onSubmit={onAddPost} />
       {postsElements}
     </div>
   );
 }
+
+const AddNewPost = (props) => {
+  let buttonOnClick = (e) => {
+    e.currentTarget.blur();
+  }
+
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div tabIndex="0" className={styles.post_creator_box}>
+        <Field
+          className={styles.textarea}
+          name="newPostText"
+          placeholder="How are you?"
+          component={"textarea"}
+        />
+        <div className={styles.post_creator_tools}>
+          <button
+            className={styles.textarea_button}
+            onClick={buttonOnClick}
+          >
+            Post
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+const AddNewPostRedux = reduxForm({form: "ProfileAddNewPost"})(AddNewPost);
 
 export default MyPosts;

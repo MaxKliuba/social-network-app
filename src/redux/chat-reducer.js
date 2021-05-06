@@ -1,5 +1,4 @@
 const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let initialState = {
   chatData: {
@@ -33,28 +32,26 @@ let initialState = {
         messageText: "I am fine too)",
       },
     ],
-    newMessageText: "",
   },
 };
 
 const chatReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE: {
-      state.chatData.newMessageText = state.chatData.newMessageText.trim();
+      let newMessageBody = action.newMessageBody;
 
-      if (state.chatData.newMessageText.length > 0) {
+      if (newMessageBody && newMessageBody.trim().length > 0) {
         let newMessage = {
           messageId: 0,
           userId: 0,
           myMessage: true,
-          messageText: state.chatData.newMessageText,
+          messageText: newMessageBody,
         };
 
         return {
           ...state,
           chatData: {
             ...state.chatData,
-            newMessageText: "",
             messages: [...state.chatData.messages, newMessage],
           },
         };
@@ -63,16 +60,6 @@ const chatReducer = (state = initialState, action) => {
         ...state,
         chatData: {
           ...state.chatData,
-          newMessageText: "",
-        },
-      };
-    }
-    case UPDATE_NEW_MESSAGE_TEXT: {
-      return {
-        ...state,
-        chatData: {
-          ...state.chatData,
-          newMessageText: action.newText,
         },
       };
     }
@@ -81,15 +68,8 @@ const chatReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = () => {
-  return { type: SEND_MESSAGE };
-};
-
-export const updateNewMessageTextCreator = (text) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newText: text,
-  };
+export const sendMessageCreator = (newMessageBody) => {
+  return { type: SEND_MESSAGE, newMessageBody };
 };
 
 export default chatReducer;

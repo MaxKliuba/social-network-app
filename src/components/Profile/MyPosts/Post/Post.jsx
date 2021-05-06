@@ -18,8 +18,8 @@ function Post(props) {
         <div className={styles.edit_button_content}></div>
       </div>
       <div className={styles.post_header}>
-        <h4 className={styles.user_name}>{props.userName}</h4>
-        <h6 className={styles.post_datetime}>{props.postDatetime}</h6>
+        <div className={styles.user_name}>{props.userName}</div>
+        <div className={styles.post_datetime}>{props.postDatetime}</div>
       </div>
       <div className={styles.post_content}>
         <span>{props.postText}</span>

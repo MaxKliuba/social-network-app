@@ -1,7 +1,6 @@
 import { profileAPI, usersAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
@@ -25,7 +24,6 @@ let initialState = {
     //   like: null,
     // },
   ],
-  newPostText: "",
   profile: null,
   // {
   //   "aboutMe": "я круто чувак 1001%",
@@ -54,9 +52,9 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
-      state.newPostText = state.newPostText.trim();
+      let newPostText = action.newPostText;
 
-      if (state.newPostText.length > 0) {
+      if (newPostText && newPostText.trim().length > 0) {
         let digitFormat = (digit) => {
           return digit.toString().length < 2 ? "0" + digit : digit;
         };
@@ -78,26 +76,18 @@ const profileReducer = (state = initialState, action) => {
           userName: state.profile.fullName,
           userAvatar: state.profile.photos.small,
           postDatetime: dateTimeNow,
-          postText: state.newPostText,
+          postText: newPostText,
           like: 0,
         };
 
         return {
           ...state,
-          newPostText: "",
           postsData: [newPost, ...state.postsData],
         };
       }
 
       return {
         ...state,
-        newPostText: "",
-      };
-    }
-    case UPDATE_NEW_POST_TEXT: {
-      return {
-        ...state,
-        newPostText: action.newText,
       };
     }
     case SET_USER_PROFILE: {
@@ -117,15 +107,8 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostCreator = () => {
-  return { type: ADD_POST };
-};
-
-export const updateNewPostTextCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text,
-  };
+export const addPostCreator = (newPostText) => {
+  return { type: ADD_POST, newPostText };
 };
 
 export const setUserProfile = (profile) => {

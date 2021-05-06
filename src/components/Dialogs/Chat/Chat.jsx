@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Redirect } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
 import styles from "./Chat.module.css";
 
 const Message = (props) => {
@@ -29,12 +30,8 @@ function Chat(props) {
     );
   });
 
-  let onSendMessageClick = () => {
-    props.sendMessage();
-  };
-
-  let onNewMessageChange = (e) => {
-    props.newMessageChange(e.target.value);
+  let addNewMessage = (values) => {
+    props.sendMessage(values.newMessageBody);
   };
 
   return (
@@ -52,28 +49,30 @@ function Chat(props) {
       </div>
       <div className={styles.chat_content}>{messagesElements}</div>
       <div className={styles.chat_footer}>
-        <div>
-          <div>
-            <textarea
-              className={styles.textarea}
-              // ref={newMessageElement}
-              onChange={onNewMessageChange}
-              maxLength="5000"
-              placeholder="Message"
-              value={state.chatData.newMessageText}
-            ></textarea>
-          </div>
-          <button
-            className={styles.textarea_button}
-            // ref={textareaButton}
-            onClick={onSendMessageClick}
-          >
-            Send
-          </button>
-        </div>
+        <AddMessageFormRedux onSubmit={addNewMessage} />
       </div>
     </div>
   );
 }
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} className={styles.add_message_box}>
+        <div className={styles.add_message_box}>
+          <Field
+            component="textarea"
+            name="newMessageBody"
+            placeholder="Message"
+            className={styles.textarea}
+          />
+        </div>
+        <button className={styles.textarea_button}>Send</button>
+    </form>
+  );
+};
+
+const AddMessageFormRedux = reduxForm({ form: "dialogAddMessageForm" })(
+  AddMessageForm
+);
 
 export default Chat;
