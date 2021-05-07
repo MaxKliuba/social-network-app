@@ -81,20 +81,6 @@ const AddMessageForm = (props) => {
         </div>
       </div>
     </form>
-
-
-    // <form onSubmit={props.handleSubmit} className={styles.add_message_box}>
-    //   <div className={styles.add_message_box}>
-    //     <Field
-    //       component={Textarea}
-    //       name="newMessageBody"
-    //       placeholder="Message"
-    //       className={styles.textarea}
-    //       validate={[maxLength10]}
-    //     />
-    //   </div>
-    //   <button className={styles.textarea_button}>Send</button>
-    // </form>
   );
 };
 

@@ -25,7 +25,7 @@ function Header(props) {
 
             <Dropdown.Menu>
               <Dropdown.Item href="/settings">Settings</Dropdown.Item>
-              <Dropdown.Item href="/logout">Log out</Dropdown.Item>
+              <Dropdown.Item onClick={props.logout}>Log out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         ) : (

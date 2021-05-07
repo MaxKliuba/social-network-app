@@ -177,45 +177,5 @@
   display: block;
 }
 
-/* .add_message_box {
-  display: block;
-  width: 100%;
-  padding: 10px;
-}
-
-.textarea {
-  width: 100%;
-  height: 54px;
-  resize: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 20px;
-  text-align: left;
-  border: none;
-  outline: none;
-  font-size: 20px;
-  color: #18191a;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.textarea_button {
-  height: 50px;
-  background-color: #007BFF;
-  border-radius: 20px;
-  margin: 10px;
-  text-align: center;
-  border: none;
-  outline: none;
-  font-size: 25px;
-  color: whitesmoke;
-  cursor: pointer;
-  flex: 0 100px;
-} */
-
-/* .textarea_button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-} */
-
 @media only screen and (max-width: 720px) {
 }
