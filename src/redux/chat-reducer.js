@@ -40,26 +40,18 @@ const chatReducer = (state = initialState, action) => {
     case SEND_MESSAGE: {
       let newMessageBody = action.newMessageBody;
 
-      if (newMessageBody && newMessageBody.trim().length > 0) {
-        let newMessage = {
-          messageId: 0,
-          userId: 0,
-          myMessage: true,
-          messageText: newMessageBody,
-        };
+      let newMessage = {
+        messageId: 0,
+        userId: 0,
+        myMessage: true,
+        messageText: newMessageBody,
+      };
 
-        return {
-          ...state,
-          chatData: {
-            ...state.chatData,
-            messages: [...state.chatData.messages, newMessage],
-          },
-        };
-      }
       return {
         ...state,
         chatData: {
           ...state.chatData,
+          messages: [...state.chatData.messages, newMessage],
         },
       };
     }

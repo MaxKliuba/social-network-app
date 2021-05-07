@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import styles from "./Chat.module.css";
+import { maxLengthCreator, required } from "../../../utils/validators/validators.js";
+import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const Message = (props) => {
   return props.myMessage ? (
@@ -55,19 +57,44 @@ function Chat(props) {
   );
 }
 
+const maxLength10 = maxLengthCreator(10);
+
 const AddMessageForm = (props) => {
+  let buttonOnClick = (e) => {
+    e.currentTarget.blur();
+  };
+
   return (
-    <form onSubmit={props.handleSubmit} className={styles.add_message_box}>
-        <div className={styles.add_message_box}>
-          <Field
-            component="textarea"
-            name="newMessageBody"
-            placeholder="Message"
-            className={styles.textarea}
-          />
+    <form onSubmit={props.handleSubmit}>
+      <div tabIndex="0" className={styles.message_creator_box}>
+        <Field
+          className={styles.textarea}
+          name="newMessageBody"
+          placeholder="Message"
+          component={Textarea}
+          validate={[required, maxLength10]}
+        />
+        <div className={styles.message_creator_tools}>
+          <button className={styles.textarea_button} onClick={buttonOnClick}>
+            Send
+          </button>
         </div>
-        <button className={styles.textarea_button}>Send</button>
+      </div>
     </form>
+
+
+    // <form onSubmit={props.handleSubmit} className={styles.add_message_box}>
+    //   <div className={styles.add_message_box}>
+    //     <Field
+    //       component={Textarea}
+    //       name="newMessageBody"
+    //       placeholder="Message"
+    //       className={styles.textarea}
+    //       validate={[maxLength10]}
+    //     />
+    //   </div>
+    //   <button className={styles.textarea_button}>Send</button>
+    // </form>
   );
 };
 

@@ -54,40 +54,34 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       let newPostText = action.newPostText;
 
-      if (newPostText && newPostText.trim().length > 0) {
-        let digitFormat = (digit) => {
-          return digit.toString().length < 2 ? "0" + digit : digit;
-        };
-        let today = new Date();
-        let dateTimeNow =
-          digitFormat(today.getHours()) +
-          ":" +
-          digitFormat(today.getMinutes()) +
-          " " +
-          digitFormat(today.getDate()) +
-          "." +
-          digitFormat(today.getMonth() + 1) +
-          "." +
-          today.getFullYear();
+      // let digitFormat = (digit) => {
+      //   return digit.toString().length < 2 ? "0" + digit : digit;
+      // };
+      // let today = new Date();
+      // let dateTimeNow =
+      //   digitFormat(today.getHours()) +
+      //   ":" +
+      //   digitFormat(today.getMinutes()) +
+      //   " " +
+      //   digitFormat(today.getDate()) +
+      //   "." +
+      //   digitFormat(today.getMonth() + 1) +
+      //   "." +
+      //   today.getFullYear();
 
-        let newPost = {
-          postId: 0,
-          userId: state.profile.userId,
-          userName: state.profile.fullName,
-          userAvatar: state.profile.photos.small,
-          postDatetime: dateTimeNow,
-          postText: newPostText,
-          like: 0,
-        };
-
-        return {
-          ...state,
-          postsData: [newPost, ...state.postsData],
-        };
-      }
+      let newPost = {
+        postId: 0,
+        userId: state.profile.userId,
+        userName: state.profile.fullName,
+        userAvatar: state.profile.photos.small,
+        // postDatetime: dateTimeNow,
+        postText: newPostText,
+        like: 0,
+      };
 
       return {
         ...state,
+        postsData: [newPost, ...state.postsData],
       };
     }
     case SET_USER_PROFILE: {
@@ -144,7 +138,7 @@ export const getStatus = (userId) => {
 export const updateStatus = (status) => {
   return (dispatch) => {
     profileAPI.updateStatus(status).then((response) => {
-      if(response.resultCode === 0) {
+      if (response.resultCode === 0) {
         dispatch(setStatus(status));
       }
     });

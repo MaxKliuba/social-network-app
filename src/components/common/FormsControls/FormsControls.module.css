@@ -1,0 +1,20 @@
+.error {
+  background-color: #eab7b5;
+  border-radius: 20px;
+}
+
+.error input,
+.error textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid red 2px;
+}
+
+.error_message_box {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-weight: 500;
+}
