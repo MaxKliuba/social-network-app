@@ -3,6 +3,7 @@ import styles from "./ProfileInfo.module.css";
 import userPhoto from "../../../assets/images/userPhoto.jpg";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
   if (!props.profile) {
@@ -29,7 +30,7 @@ function ProfileInfo(props) {
         <div className={styles.profile_info}>
           <h2 className={styles.user_name}>{props.profile.fullName}</h2>
           <div className={styles.group}>
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
           </div>
           <div className={styles.group}>
             <label className={styles.group_label}>About me:</label>
