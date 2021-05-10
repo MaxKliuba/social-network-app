@@ -2,10 +2,17 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { maxLengthCreator, required} from "../../../utils/validators/validators.js";
+import {
+  maxLengthCreator,
+  required,
+} from "../../../utils/validators/validators.js";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
-function MyPosts(props) {
+const MyPosts = React.memo((props) => {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps != this.props || nextState != this.state;
+  // }
+
   let postsElements = props.postsData.map((el) => {
     return (
       <Post
@@ -21,12 +28,6 @@ function MyPosts(props) {
     );
   });
 
-  if (props.postsData.length > 0) {
-    postsElements = (
-      <div className={styles.posts_container}>{postsElements}</div>
-    );
-  }
-
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
   };
@@ -34,10 +35,12 @@ function MyPosts(props) {
   return (
     <div className="content_box">
       <AddNewPostFormRedux onSubmit={onAddPost} />
-      {postsElements}
+      {postsElements.length > 0 ? (
+        <div className={styles.posts_container}>{postsElements}</div>
+      ) : null}
     </div>
   );
-}
+});
 
 const maxLength10 = maxLengthCreator(10);
 

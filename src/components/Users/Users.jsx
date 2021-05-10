@@ -29,17 +29,16 @@ let Users = (props) => {
       </div> */}
 
       {props.users.map((el) => (
-        <div key={el.id}>
-          <UserItem
-            user={el}
-            disabledFlag={props.followingInProgress.some((id) => id === el.id)}
-            follow={props.follow}
-            unfollow={props.unfollow}
-          />
-        </div>
+        <UserItem
+          key={el.id}
+          user={el}
+          disabledFlag={props.followingInProgress.some((id) => id === el.id)}
+          follow={props.follow}
+          unfollow={props.unfollow}
+        />
       ))}
 
-      {props.currentPage < pagesCount? (
+      {props.currentPage < pagesCount ? (
         <div>
           <button
             onClick={() => {
