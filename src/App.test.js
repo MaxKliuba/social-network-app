@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from '@testing-library/react';
+import { unmountComponentAtNode } from 'react-dom';
+import MainApp from './App';
 
-test('renders learn react link', () => {
-  // render(<App />);
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
-  expect(true).toBe(true);
+test('renders  without crashing', () => {
+  const div = document.createElement('div');
+  render(<MainApp />, div);
+  unmountComponentAtNode(div);
+  // expect(true).toBe(true);
 });
