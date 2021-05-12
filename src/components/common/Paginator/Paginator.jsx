@@ -16,47 +16,50 @@ let Paginator = ({
   }
 
   let portionCount = Math.ceil(pagesCount / portionSize);
-  let [portionNumber, setPortionNumber] = useState(Math.ceil(currentPage / portionSize));
+  let [portionNumber, setPortionNumber] = useState(
+    Math.ceil(currentPage / portionSize)
+  );
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
   return (
     <div className={styles.paginator_box}>
       {portionNumber > 1 && (
-        <button
+        <div
+          className={`${styles.page_button} ${styles.prev_button}`}
           onClick={() => {
             setPortionNumber(portionNumber - 1);
           }}
-        >
-          PREV
-        </button>
+        ></div>
       )}
-
-      {pages
-        .filter(
-          (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
-        )
-        .map((p) => {
-          return (
-            <span
-              className={currentPage === p && styles.selected_page}
-              key={p}
-              onClick={(e) => {
-                onPageChanged(p);
-              }}
-            >
-              {p}
-            </span>
-          );
-        })}
+      <div className={styles.pages_block}>
+        {pages
+          .filter(
+            (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
+          )
+          .map((p) => {
+            return (
+              <div
+                className={`${styles.page_box} ${
+                  currentPage === p && styles.selected_page
+                }`}
+                key={p}
+                onClick={(e) => {
+                  onPageChanged(p);
+                }}
+              >
+                {p}
+              </div>
+            );
+          })}
+      </div>
       {portionCount > portionNumber && (
-        <button
+        <div
+        className={`${styles.page_button} ${styles.next_button}`}
           onClick={() => {
             setPortionNumber(portionNumber + 1);
           }}
-        >
-          NEXT
-        </button>
+        ></div>
       )}
     </div>
   );

@@ -1,6 +1,115 @@
+.paginator_box {
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #18191a;
+  padding-right: 42px;
+}
+
+.pages_block {
+  margin-left: 42px;
+  display: inline-block;
+}
+
+.page_box {
+  min-width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+}
+
+.page_box:hover {
+  background-color: rgba(50, 50, 50, 0.1);
+}
+
 .selected_page {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.page_button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: transparent;
+  margin: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.page_button:hover {
+  background-color: rgba(50, 50, 50, 0.1);
+}
+
+.prev_button::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #18191a;
+  left: 20%;
+  top: 30%;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.prev_button::after {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #18191a;
+  left: 20%;
+  top: 63%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.next_button::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #18191a;
+  left: 20%;
+  top: 63%;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.next_button::after {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #18191a;
+  left: 20%;
+  top: 30%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @media only screen and (max-width: 720px) {
+  .page_button {
+    cursor: auto;
+  }
+
+  .page_box {
+    cursor: auto;
+  }
 }

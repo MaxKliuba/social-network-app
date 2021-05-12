@@ -6,7 +6,7 @@ function Navbar() {
   let navbarData = [
     { id: 0, link: "/profile", text: "Profile", indicator_value: 0 },
     { id: 1, link: "/dialogs", text: "Dialogs", indicator_value: 0 },
-    { id: 2, link: "/friends", text: "Friends", indicator_value: 0 },
+    // { id: 2, link: "/friends", text: "Friends", indicator_value: 0 },
     { id: 3, link: "/users", text: "Users", indicator_value: 0 },
   ];
 
