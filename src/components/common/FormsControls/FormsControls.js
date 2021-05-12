@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./FormsControls.module.css";
 
 export const FormControl = ({ input, meta, child, ...props }) => {
-  const hasError = meta.touched && meta.error;
+  const hasError = meta.touched && meta.error && meta.error.length > 1;
 
   return (
     <div className={hasError ? styles.error : ""}>
@@ -23,11 +23,11 @@ export const Textarea = (props) => {
 };
 
 export const Input = (props) => {
-    const { input, meta, child, ...restProps } = props;
-  
-    return (
-      <FormControl {...props}>
-        <input {...input} {...restProps} />
-      </FormControl>
-    );
-  };
+  const { input, meta, child, ...restProps } = props;
+
+  return (
+    <FormControl {...props}>
+      <input {...input} {...restProps} />
+    </FormControl>
+  );
+};

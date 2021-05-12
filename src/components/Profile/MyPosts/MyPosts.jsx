@@ -4,7 +4,7 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import {
   maxLengthCreator,
-  required,
+  requiredWithoutMessage,
 } from "../../../utils/validators/validators.js";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
@@ -42,7 +42,7 @@ const MyPosts = React.memo((props) => {
   );
 });
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength = maxLengthCreator(1000);
 
 const AddNewPostForm = (props) => {
   let buttonOnClick = (e) => {
@@ -57,7 +57,8 @@ const AddNewPostForm = (props) => {
           name="newPostText"
           placeholder="How are you?"
           component={Textarea}
-          validate={[required, maxLength10]}
+          validate={[requiredWithoutMessage, maxLength]}
+          displayError={false}
         />
         <div className={styles.post_creator_tools}>
           <button className={styles.textarea_button} onClick={buttonOnClick}>

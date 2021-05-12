@@ -2,7 +2,10 @@ import React from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import styles from "./Chat.module.css";
-import { maxLengthCreator, required } from "../../../utils/validators/validators.js";
+import {
+  maxLengthCreator,
+  requiredWithoutMessage,
+} from "../../../utils/validators/validators.js";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const Message = (props) => {
@@ -57,7 +60,7 @@ function Chat(props) {
   );
 }
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength = maxLengthCreator(10);
 
 const AddMessageForm = (props) => {
   let buttonOnClick = (e) => {
@@ -72,7 +75,7 @@ const AddMessageForm = (props) => {
           name="newMessageBody"
           placeholder="Message"
           component={Textarea}
-          validate={[required, maxLength10]}
+          validate={[requiredWithoutMessage, maxLength]}
         />
         <div className={styles.message_creator_tools}>
           <button className={styles.textarea_button} onClick={buttonOnClick}>

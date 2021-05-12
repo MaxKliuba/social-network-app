@@ -1,18 +1,9 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
 import userPhoto from "../../../assets/images/userPhoto.jpg";
-import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
-  if (!props.profile) {
-    return (
-      <div className="content_box">
-        <Preloader />
-      </div>
-    );
-  }
-
   return (
     <div>
       <div className="content_box">

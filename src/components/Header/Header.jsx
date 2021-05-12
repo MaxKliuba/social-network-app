@@ -13,7 +13,7 @@ function Header(props) {
       <div className={styles.header_button}>
         {props.isAuth ? (
           <Dropdown as={ButtonGroup}>
-            <NavLink to="/profile">
+            <NavLink to={`/my-profile`}>
               <Button variant="secondary">{props.login}</Button>
             </NavLink>
 

@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import { required } from "../../utils/validators/validators";
+import { maxLengthCreator, required } from "../../utils/validators/validators";
 import { Input } from "../common/FormsControls/FormsControls";
 import { login } from "../../redux/auth-reducer";
 import { Redirect } from "react-router";
 import styles from "./Login.module.css";
 import errorStyles from "../common/FormsControls/FormsControls.module.css"
+
+const maxLength = maxLengthCreator(100);
 
 function LoginForm(props) {
   return (
@@ -17,7 +19,7 @@ function LoginForm(props) {
           placeholder={"Email"}
           name={"email"}
           component={Input}
-          validate={[required]}
+          validate={[required, maxLength]}
         />
       </div>
       <div className={styles.text_input_box}>
@@ -27,7 +29,7 @@ function LoginForm(props) {
           placeholder={"Password"}
           name={"password"}
           component={Input}
-          validate={[required]}
+          validate={[required, maxLength]}
         />
       </div>
       <div className={styles.checkbox_input_box}>
