@@ -1,25 +1,19 @@
 import React from "react";
-import Preloader from "../common/Preloader/Preloader";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 function Profile(props) {
-  if (!props.profile) {
-    return (
-      <div className="content_box">
-        <Preloader />
-      </div>
-    );
-  }
-
   return (
     <div>
       <ProfileInfo
+        isOwner={props.isOwner}
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
+        savePhoto={props.savePhoto}
+        saveProfile={props.saveProfile}
       />
-      <MyPostsContainer />
+      <MyPostsContainer isOwner={props.isOwner}/>
     </div>
   );
 }

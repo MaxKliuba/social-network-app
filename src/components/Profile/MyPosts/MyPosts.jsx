@@ -34,7 +34,7 @@ const MyPosts = React.memo((props) => {
 
   return (
     <div className="content_box">
-      <AddNewPostFormRedux onSubmit={onAddPost} />
+      {props.isOwner && <AddNewPostFormRedux onSubmit={onAddPost} />}
       {postsElements.length > 0 ? (
         <div className={styles.posts_container}>{postsElements}</div>
       ) : null}
@@ -58,7 +58,6 @@ const AddNewPostForm = (props) => {
           placeholder="How are you?"
           component={Textarea}
           validate={[requiredWithoutMessage, maxLength]}
-          displayError={false}
         />
         <div className={styles.post_creator_tools}>
           <button className={styles.textarea_button} onClick={buttonOnClick}>

@@ -38,7 +38,6 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className="app_wrapper_content">
-          <Route path="/my-profile" render={() => <ProfileContainer />} />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route
             exact
