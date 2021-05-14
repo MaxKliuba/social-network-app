@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI } from "../api/api";
 
 const TOGGLE_IS_FETCHING = "profile/TOGGLE_IS_FETCHING";
@@ -8,14 +9,6 @@ const SET_STATUS = "profile/SET_STATUS";
 const SAVE_PHOTO_SUCCEESS = "profile/SAVE_PHOTO_SUCCEESS";
 
 let initialState = {
-  userData: {
-    userId: 0,
-    userStatus: "Online",
-    userName: "User Test Name",
-    userAvatar: "https://avatarfiles.alphacoders.com/150/thumb-150316.jpg",
-    userBirthday: "31.02.2000",
-    userCity: "Test-City",
-  },
   postsData: [
     // {
     //   postId: null,
@@ -29,27 +22,27 @@ let initialState = {
   ],
   profile: null,
   // {
-  //   "aboutMe": "я круто чувак 1001%",
+  //   "aboutMe": "about Me",
   //   "contacts": {
-  //     "facebook": "facebook.com",
+  //     "facebook": null,
   //     "website": null,
-  //     "vk": "vk.com/dimych",
-  //     "twitter": "https://twitter.com/@sdf",
-  //     "instagram": "instagra.com/sds",
+  //     "vk": null,
+  //     "twitter": null,
+  //     "instagram": null,
   //     "youtube": null,
-  //     "github": "github.com",
+  //     "github": null,
   //     "mainLink": null
   //   },
   //   "lookingForAJob": true,
-  //   "lookingForAJobDescription": "не ищу, а дурачусь",
-  //   "fullName": "samurai dimych",
-  //   "userId": 2,
+  //   "lookingForAJobDescription": "looking For A Job Description",
+  //   "fullName": "Full Name",
+  //   "userId": 0,
   //   "photos": {
-  //     "small": "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
-  //     "large": "https://social-network.samuraijs.com/activecontent/images/users/2/user.jpg?v=0"
+  //     "small": null,
+  //     "large": null
   //   }
   // }
-  status: "",
+  status: "--",
   isFetching: false,
 };
 
@@ -172,23 +165,35 @@ export const getStatus = (userId) => async (dispatch) => {
 };
 
 export const updateStatus = (status) => async (dispatch) => {
+  dispatch(toggleIsFetching(true));
   let response = await profileAPI.updateStatus(status);
   if (response.data.resultCode === 0) {
     dispatch(setStatus(status));
+    dispatch(toggleIsFetching(false));
   }
 };
 
 export const savePhoto = (file) => async (dispatch) => {
+  dispatch(toggleIsFetching(true));
   let response = await profileAPI.savePhoto(file);
   if (response.data.resultCode === 0) {
     dispatch(savePhotoSuccess(response.data.data.photos));
+    dispatch(toggleIsFetching(false));
   }
 };
 
-export const saveProfile = (profile) => async (dispatch) => {
+export const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
   let response = await profileAPI.saveProfile(profile);
   if (response.data.resultCode === 0) {
-    // dispatch(savePhotoSuccess(response.data.data.photos));
+    dispatch(getUserProfile(userId));
+  } else {
+    let errorMessage =
+      response.data.messages.length > 0
+        ? response.data.messages[0]
+        : "Some error";
+    dispatch(stopSubmit("edit-profile", { _error: errorMessage }));
+    return Promise.reject(response.data.messages[0]);
   }
 };
 

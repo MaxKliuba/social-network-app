@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./ProfileInfo.module.css";
+import errorStyles from "../../common/FormsControls/FormsControls.module.css"
 import userPhoto from "../../../assets/images/userPhoto.jpg";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 import { Input } from "../../common/FormsControls/FormsControls";
 import { Field, reduxForm } from "redux-form";
+import { maxLengthCreator, required } from "../../../utils/validators/validators";
 
 function ProfileInfo(props) {
   let [editMode, setEditMode] = useState(false);
@@ -15,28 +17,51 @@ function ProfileInfo(props) {
   };
 
   const onSubmit = (formData) => {
-    props.saveProfile(formData);
+    props.saveProfile(formData).then(() => {
+      setEditMode(false);
+    });
   };
 
   return (
-    <div>
-      <div className="content_box">
-        <img
-          className={styles.avatar}
-          src={props.profile.photos.large || userPhoto}
-          alt="avatar"
-        ></img>
-        {props.isOwner && <input type={"file"} onChange={onAvatarSelected} />}
+    <div className="content_box">
+      <div className={styles.profile_content_box}>
+        <div className={styles.avatar_box}>
+          {props.isOwner ? (
+            <>
+              <input
+                id={"upload_avatar"}
+                className={styles.upload_photo_input}
+                type={"file"}
+                accept=".jpg, .jpeg, .png"
+                onChange={onAvatarSelected}
+              />
+              <label
+                htmlFor={"upload_avatar"}
+                className={styles.upload_photo_label}
+              >
+                <img
+                  className={styles.avatar}
+                  src={props.profile.photos.large || userPhoto}
+                  alt="avatar"
+                />
+              </label>
+            </>
+          ) : (
+            <img
+              className={styles.avatar}
+              src={props.profile.photos.large || userPhoto}
+              alt="avatar"
+            />
+          )}
+        </div>
+
         {editMode ? (
           <ProfileDataReduxForm
-            profile={props.profile}
+            initialValues={props.profile}
             isOwner={props.isOwner}
             status={props.status}
             updateStatus={props.updateStatus}
             onSubmit={onSubmit}
-            goToEditMode={() => {
-              setEditMode(false);
-            }}
           />
         ) : (
           <ProfileData
@@ -56,83 +81,100 @@ function ProfileInfo(props) {
 
 const ProfileData = (props) => {
   return (
-    <>
+    <div className={styles.profile_info_box}>
       <div className={styles.profile_info}>
-        <div className={styles.user_name_box}>
-          <div className={styles.user_name}>{props.profile.fullName}</div>
-        </div>
-        <div className={styles.group}>
-          <ProfileStatusWithHooks
-            isOwner={props.isOwner}
-            status={props.status}
-            updateStatus={props.updateStatus}
-          />
-        </div>
-        <div className={styles.group}>
-          <label className={styles.group_label}>About me:</label>
-          <span>{props.profile.aboutMe || "--"}</span>
-        </div>
-        {props.isOwner && (
+        <div className={styles.user_name}>{props.profile.fullName}</div>
+        <ProfileStatusWithHooks
+          isOwner={props.isOwner}
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
+        <div className={styles.group_box}>
           <div className={styles.group}>
-            <button onClick={props.goToEditMode}>EDIT</button>
+            <label className={styles.group_label}>About me:</label>
+            <div className={styles.group_text}>
+              {props.profile.aboutMe || "--"}
+            </div>
           </div>
-        )}
+          <div className={styles.group}>
+            <label className={styles.group_label}>Description:</label>
+            <div className={styles.group_text}>
+              {props.profile.lookingForAJobDescription || "--"}
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+      {props.isOwner && (
+        <div className={styles.editButtonBox}>
+          <button
+            className={`${styles.editButton} ${styles.editOpen}`}
+            onClick={props.goToEditMode}
+          ></button>
+        </div>
+      )}
+    </div>
   );
 };
 
 const ProfileDataForm = (props) => {
   return (
-    <div className={styles.profile_info}>
-      <form onSubmit={props.handleSubmit}>
-        <div className={styles.user_name_box}>
-          <div className={styles.user_name}>
+    <form className={styles.profile_info_box} onSubmit={props.handleSubmit}>
+      <div className={styles.profile_info}>
+        <div className={styles.user_name}>
+          <Field
+            className={styles.input_user_name}
+            placeholder={"full name"}
+            name={"fullName"}
+            component={Input}
+            validate={[required,]}
+          />
+        </div>
+        <ProfileStatusWithHooks
+          isOwner={props.isOwner}
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
+        <div className={styles.group_box}>
+          <div className={styles.group}>
+            <label className={styles.group_label}>About me:</label>
+            <div className={styles.input_group_text_box}>
+              <Field
+                className={styles.input_group_text}
+                placeholder={"about me"}
+                name={"aboutMe"}
+                component={Input}
+                validate={[required,]}
+              />
+            </div>
+          </div>
+          <div className={`${styles.group} ${styles.noDisplay}`}>
             <Field
-              // className={styles.text_input}
-              placeholder={"full name"}
-              name={"fullName"}
-              component={Input}
-              validate={[]}
+              type={"checkbox"}
+              name={"lookingForAJob"}
+              component={"input"}
             />
           </div>
+          <div className={styles.group}>
+            <label className={styles.group_label}>Description:</label>
+            <div className={styles.input_group_text_box}>
+              <Field
+                className={styles.input_group_text}
+                placeholder={"description"}
+                name={"lookingForAJobDescription"}
+                component={Input}
+                validate={[required,]}
+              />
+            </div>
+          </div>
         </div>
-        <div className={styles.group}>
-          <ProfileStatusWithHooks
-            isOwner={props.isOwner}
-            status={props.status}
-            updateStatus={props.updateStatus}
-          />
-        </div>
-        <div className={styles.group}>
-          <label className={styles.group_label}>About me:</label>
-          <Field
-            // className={styles.text_input}
-            placeholder={"about me"}
-            name={"aboutMe"}
-            component={Input}
-            validate={[]}
-          />
-        </div>
-        <div className={styles.group}>
-          <Field
-            type={"checkbox"}
-            name={"lookingForAJob"}
-            component={"input"}
-          />
-        </div>
-        <div className={styles.group}>
-          <Field
-            placeholder={"description"}
-            name={"lookingForAJobDescription"}
-            component={Input}
-          />
-        </div>
-        <div className={styles.group}>
-          <button>SAVE</button>
-        </div>
-      </form>
-    </div>
+        {props.error && <div className={errorStyles.error_message}>{props.error}</div>}
+      </div>
+      <div className={styles.editButtonBox}>
+        <button
+          className={`${styles.editButton} ${styles.editConfirm}`}
+        ></button>
+      </div>
+    </form>
   );
 };
 

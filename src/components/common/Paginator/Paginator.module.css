@@ -26,6 +26,8 @@
   cursor: pointer;
   user-select: none;
   background-color: transparent;
+  /* transition: 0.3s; */
+
 }
 
 .page_box:hover {
@@ -46,6 +48,7 @@
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
+  /* transition: 0.3s; */
 }
 
 .page_button:hover {

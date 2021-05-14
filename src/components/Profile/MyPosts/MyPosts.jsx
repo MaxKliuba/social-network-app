@@ -35,7 +35,7 @@ const MyPosts = React.memo((props) => {
   return (
     <div className="content_box">
       {props.isOwner && <AddNewPostFormRedux onSubmit={onAddPost} />}
-      {postsElements.length > 0 ? (
+      {props.isOwner && postsElements.length > 0 ? (
         <div className={styles.posts_container}>{postsElements}</div>
       ) : null}
     </div>
