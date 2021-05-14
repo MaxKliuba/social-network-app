@@ -68,7 +68,7 @@ let AppContainer = compose(
 
 const MainApp = (props) => {
   return (
-    <HashRouter >
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
