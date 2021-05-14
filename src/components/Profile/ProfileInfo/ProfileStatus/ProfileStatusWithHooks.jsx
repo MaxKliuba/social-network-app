@@ -37,6 +37,7 @@ const ProfileStatusWithHooks = (props) => {
           onBlur={deactivateEditMode}
           onChange={onStatusChange}
           value={status}
+          maxLength={"300"}
         />
       )}
     </>

@@ -97,10 +97,14 @@
 
 .user_name {
   display: inline-block;
+  vertical-align: top;
+  margin-bottom: 5px;
   font-size: 30px;
   font-weight: bold;
   width: 100%;
-  margin-bottom: 5px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .group_box {
@@ -121,8 +125,12 @@
 
 .group_text {
   display: inline-block;
+  vertical-align: top;
   background-color: transparent;
   width: 240px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .input_user_name {

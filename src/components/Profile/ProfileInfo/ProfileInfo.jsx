@@ -116,6 +116,8 @@ const ProfileData = (props) => {
   );
 };
 
+const maxLength = maxLengthCreator(300);
+
 const ProfileDataForm = (props) => {
   return (
     <form className={styles.profile_info_box} onSubmit={props.handleSubmit}>
@@ -126,7 +128,7 @@ const ProfileDataForm = (props) => {
             placeholder={"full name"}
             name={"fullName"}
             component={Input}
-            validate={[required,]}
+            validate={[required, maxLength]}
           />
         </div>
         <ProfileStatusWithHooks
@@ -143,7 +145,7 @@ const ProfileDataForm = (props) => {
                 placeholder={"about me"}
                 name={"aboutMe"}
                 component={Input}
-                validate={[required,]}
+                validate={[required, maxLength]}
               />
             </div>
           </div>
@@ -162,7 +164,7 @@ const ProfileDataForm = (props) => {
                 placeholder={"description"}
                 name={"lookingForAJobDescription"}
                 component={Input}
-                validate={[required,]}
+                validate={[required, maxLength]}
               />
             </div>
           </div>
