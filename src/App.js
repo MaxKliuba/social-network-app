@@ -22,6 +22,7 @@ const ChatContainer = React.lazy(() =>
   import("./components/Dialogs/Chat/ChatContainer")
 );
 const Login = React.lazy(() => import("./components/Login/Login"));
+const Page404 = React.lazy(() => import("./components/Page404/Page404"));
 
 class App extends React.Component {
   catchAllUnhandledErrors = (reason, promise) => {
@@ -67,10 +68,7 @@ class App extends React.Component {
               path="/dialogs/1"
               render={withSuspense(ChatContainer)}
             />
-            <Route
-              path="*"
-              render={() => <div className="content_box">404 Not found</div>}
-            />
+            <Route path="*" render={withSuspense(Page404)} />
           </Switch>
         </div>
       </div>
@@ -89,6 +87,7 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp })
 )(App);
 
+// "homepage": "https://maxkliuba.github.io/social-network-app",
 // basename={process.env.PUBLIC_URL}
 
 const MainApp = (props) => {
