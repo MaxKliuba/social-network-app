@@ -37,6 +37,7 @@ function Chat(props) {
 
   let addNewMessage = (values) => {
     props.sendMessage(values.newMessageBody);
+    props.afterSubmit();
   };
 
   return (
@@ -87,8 +88,8 @@ const AddMessageForm = (props) => {
   );
 };
 
-const AddMessageFormRedux = reduxForm({ form: "dialogAddMessageForm" })(
-  AddMessageForm
-);
+const AddMessageFormRedux = reduxForm({
+  form: "dialogAddMessageForm",
+})(AddMessageForm);
 
 export default Chat;

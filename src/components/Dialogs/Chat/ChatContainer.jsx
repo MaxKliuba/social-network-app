@@ -2,9 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
-import {
-  sendMessageCreator,
-} from "../../../redux/chat-reducer";
+import { sendMessage, afterSubmit } from "../../../redux/chat-reducer";
 import Chat from "./Chat";
 
 let mapStateToProps = (state) => {
@@ -13,15 +11,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    sendMessage: (newMessageBody) => {
-      dispatch(sendMessageCreator(newMessageBody));
-    },
-  };
-};
-
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, { sendMessage, afterSubmit }),
   withAuthRedirect
 )(Chat);

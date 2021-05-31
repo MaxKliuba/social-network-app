@@ -1,3 +1,5 @@
+import { reset } from "redux-form";
+
 const SEND_MESSAGE = "chat/SEND-MESSAGE";
 
 let initialState = {
@@ -60,8 +62,13 @@ const chatReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = (newMessageBody) => {
+export const sendMessage = (newMessageBody) => {
   return { type: SEND_MESSAGE, newMessageBody };
 };
+
+export const afterSubmit = (result) => async (dispatch) =>{
+  dispatch(reset("dialogAddMessageForm"));
+};
+
 
 export default chatReducer;

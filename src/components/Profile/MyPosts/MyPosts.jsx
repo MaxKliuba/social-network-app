@@ -30,6 +30,7 @@ const MyPosts = React.memo((props) => {
 
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
+    props.afterSubmit();
   };
 
   return (
@@ -42,7 +43,7 @@ const MyPosts = React.memo((props) => {
   );
 });
 
-const maxLength = maxLengthCreator(1000);
+const maxLength = maxLengthCreator(10);
 
 const AddNewPostForm = (props) => {
   let buttonOnClick = (e) => {
@@ -69,8 +70,8 @@ const AddNewPostForm = (props) => {
   );
 };
 
-const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPost" })(
-  AddNewPostForm
-);
+const AddNewPostFormRedux = reduxForm({
+  form: "profileAddNewPostForm",
+})(AddNewPostForm);
 
 export default MyPosts;

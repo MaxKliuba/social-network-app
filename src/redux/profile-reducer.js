@@ -1,4 +1,4 @@
-import { stopSubmit } from "redux-form";
+import { reset, stopSubmit } from "redux-form";
 import { profileAPI, usersAPI } from "../api/api";
 
 const TOGGLE_IS_FETCHING = "profile/TOGGLE_IS_FETCHING";
@@ -122,7 +122,7 @@ export const toggleIsFetching = (isFetching) => {
   };
 };
 
-export const addPostCreator = (newPostText) => {
+export const addPost = (newPostText) => {
   return { type: ADD_POST, newPostText };
 };
 
@@ -195,6 +195,10 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     dispatch(stopSubmit("edit-profile", { _error: errorMessage }));
     return Promise.reject(response.data.messages[0]);
   }
+};
+
+export const afterSubmit = (result) => async (dispatch) =>{
+  dispatch(reset("profileAddNewPostForm"));
 };
 
 export default profileReducer;
