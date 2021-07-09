@@ -6,5 +6,4 @@ test('renders  without crashing', () => {
   const div = document.createElement('div');
   render(<MainApp />, div);
   unmountComponentAtNode(div);
-  // expect(true).toBe(true);
 });
